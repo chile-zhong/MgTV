@@ -6,21 +6,16 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("com.robohorse.robopojogenerator")
-public class Question implements Serializable{
+public class MutiAnswerBody implements Serializable{
 
 	@SerializedName("ms")
 	private String ms;
 
-	@SerializedName("answers")
-	private List<AnswersItem> answers;
-
-	@SerializedName("title")
-	private String title;
-
 	@SerializedName("qid")
 	private String qid;
 
-
+	@SerializedName("aid")
+	private String[] aid;
 
 	public void setMs(String ms){
 		this.ms = ms;
@@ -28,22 +23,6 @@ public class Question implements Serializable{
 
 	public String getMs(){
 		return ms;
-	}
-
-	public void setAnswers(List<AnswersItem> answers){
-		this.answers = answers;
-	}
-
-	public List<AnswersItem> getAnswers(){
-		return answers;
-	}
-
-	public void setTitle(String title){
-		this.title = title;
-	}
-
-	public String getTitle(){
-		return title;
 	}
 
 	public void setQid(String qid){
@@ -54,14 +33,21 @@ public class Question implements Serializable{
 		return qid;
 	}
 
+	public void setAid(String[] aid){
+		this.aid = aid;
+	}
+
+	public String[] getAid(){
+		return aid;
+	}
+
 	@Override
  	public String toString(){
 		return 
-			"Question{" + 
+			"MutiAnswerBody{" + 
 			"ms = '" + ms + '\'' + 
-			",answers = '" + answers + '\'' + 
-			",title = '" + title + '\'' + 
 			",qid = '" + qid + '\'' + 
+			",aid = '" + aid + '\'' + 
 			"}";
 		}
 }

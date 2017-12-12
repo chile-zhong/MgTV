@@ -9,7 +9,7 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.hunan.mgtv.bean.Question;
+import com.hunan.mgtv.bean.AnswersItem;
 
 import java.util.List;
 
@@ -19,13 +19,13 @@ import java.util.List;
  * Created on 2017/12/7.
  */
 
-public class QuestionSingleAdapter extends ArrayAdapter<Question> {
+public class QuestionSingleAdapter extends ArrayAdapter<AnswersItem> {
 
     private int resourceId;
     private int index = -1;
 
     public QuestionSingleAdapter(Context context, int textViewResourceId,
-                                 List<Question> objects) {
+                                 List<AnswersItem> objects) {
         super(context, textViewResourceId, objects);
         resourceId = textViewResourceId;
     }
@@ -33,7 +33,7 @@ public class QuestionSingleAdapter extends ArrayAdapter<Question> {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         //重写适配器的getItem()方法
-        Question question = getItem(position);
+        AnswersItem answersItem = getItem(position);
         View view;
         final ViewHolder viewHolder;
         if (convertView == null) {
@@ -61,8 +61,8 @@ public class QuestionSingleAdapter extends ArrayAdapter<Question> {
         } else {
             viewHolder.checkBox.setChecked(false);
         }
-        viewHolder.number.setText(question.getXh()+"");
-        viewHolder.content.setText(question.getMs());
+        viewHolder.number.setText(position + 1 + "");
+        viewHolder.content.setText(answersItem.getTxt());
         notifyDataSetChanged();
         return view;
     }

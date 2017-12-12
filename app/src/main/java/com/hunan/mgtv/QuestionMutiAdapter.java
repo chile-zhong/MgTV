@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.hunan.mgtv.bean.Question;
+import com.hunan.mgtv.bean.AnswersItem;
 
 import java.util.List;
 
@@ -18,12 +18,12 @@ import java.util.List;
  * Created on 2017/12/7.
  */
 
-public class QuestionMutiAdapter extends ArrayAdapter<Question> {
+public class QuestionMutiAdapter extends ArrayAdapter<AnswersItem> {
 
     private int resourceId;
 
     public QuestionMutiAdapter(Context context, int textViewResourceId,
-                               List<Question> objects) {
+                               List<AnswersItem> objects) {
         super(context, textViewResourceId, objects);
         resourceId = textViewResourceId;
     }
@@ -31,7 +31,7 @@ public class QuestionMutiAdapter extends ArrayAdapter<Question> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //重写适配器的getItem()方法
-        Question question = getItem(position);
+        AnswersItem question = getItem(position);
         View view;
         ViewHolder viewHolder;
         if (convertView == null) {
@@ -46,8 +46,8 @@ public class QuestionMutiAdapter extends ArrayAdapter<Question> {
             viewHolder = (ViewHolder) view.getTag();
         }
         viewHolder.checkBox.setChecked(question.isChecked());
-        viewHolder.number.setText(question.getXh()+"");
-        viewHolder.content.setText(question.getMs());
+        viewHolder.number.setText(position + 1 + "");
+        viewHolder.content.setText(question.getTxt());
         notifyDataSetChanged();
         return view;
     }

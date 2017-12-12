@@ -19,6 +19,7 @@ package com.hunan.mgtv;
 import android.app.Application;
 import android.content.Context;
 
+import com.hunan.mgtv.api.ClientManager;
 import com.zhouyou.http.EasyHttp;
 import com.zhouyou.http.utils.HttpLog;
 
@@ -34,6 +35,8 @@ public class MyApplication extends Application {
         super.onCreate();
         app = this;
         EasyHttp.init(this);//默认初始化
+
+        ClientManager.init(app);
 
        /* //这里涉及到安全我把url去掉了，demo都是调试通的
         String Url = "http://www.baidu.com";
